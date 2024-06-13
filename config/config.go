@@ -1,28 +1,30 @@
 package config
 
 type Config struct {
-	Mysql  Mysql  `yaml:"mysql"`
-	Logger Logger `yaml:"logger"`
-	System System `yaml:"system"`
+	Mysql  Mysql  `json:"mysql"`
+	Logger Logger `json:"logger"`
+	System System `json:"system"`
 }
+
 type Mysql struct {
-	Host      string `yaml:"host"`
-	Port      int    `yaml:"port"`
-	Db        string `yaml:"db"`
-	User      string `yaml:"user"`
-	Password  string `yaml:"password"`
-	Log_level string `yaml:"og_level"` //日志等级，debug就是输出全部sql，dev，release
+	Host      string `json:"host"`
+	Port      int    `json:"port"`
+	Db        string `json:"db"`
+	User      string `json:"user"`
+	Password  string `json:"password"`
+	Log_level string `json:"log_level"`
 }
+
 type Logger struct {
-	Level        string `yaml:"level"`
-	Prefix       string `yaml:"prefix"`
-	Director     string `yaml:"director"`
-	ShowLine     bool   `yaml:"show-line"`      //是否显示行号
-	LogInConsole bool   `yaml:"log-in-console"` //是否显示打印日志
+	Level        string `json:"level"`
+	Prefix       string `json:"prefix"`
+	Director     string `json:"director"`
+	ShowLine     bool   `json:"show-line"`
+	LogInConsole bool   `json:"log-in-console"`
 }
 
 type System struct {
-	Host string `yaml:"host"`
-	Port int    `yaml:"port"`
-	Env  string `yaml:"env"`
+	Host string `json:"host"`
+	Port int    `json:"port"`
+	Env  string `json:"env"`
 }
