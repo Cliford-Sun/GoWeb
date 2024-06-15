@@ -9,7 +9,7 @@
   },
   "logger": {
     "level": "info",
-    "prefix": "[go_web]",
+    "prefix": "go_web",
     "director": "log",
     "show-line": true,
     "log-in-console": true
