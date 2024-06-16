@@ -3,6 +3,7 @@ package main
 import (
 	"GoWeb/core"
 	"GoWeb/global"
+	"GoWeb/routers"
 )
 
 func main() {
@@ -10,9 +11,11 @@ func main() {
 	core.InitConf()
 	//初始化日志
 	global.Log = core.InitLogger()
-	global.Log.Warnln("111")
-	global.Log.Errorln("111")
-	global.Log.Infoln("111")
 	// 连接数据库
 	global.DB = core.InitGorm()
+	//连接网页路由
+	router := routers.InitRouter()
+	addr := global.Config.System.Addr()
+	global.Log.Infoln("go_web 运行在 ", addr)
+	_ = router.Run(addr)
 }
